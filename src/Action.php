@@ -5,7 +5,7 @@ namespace Razu\LaravelHooks;
 class Action extends BaseHook
 {
     /**
-     * Executes all functions attached to a given action hook with the specified arguments.
+     * Executes  functions attached to a given action hook with the specified arguments.
      *
      * This method will check if there are hooks registered for the given tag. If there are, it will sort them
      * by priority and then execute each registered function with the provided arguments. The execution order is

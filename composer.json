@@ -1,0 +1,60 @@
+{
+    "name": "razu/laravel-hooks",
+    "description": "The filter and action system in Laravel is inspired by Wordpress hooks",
+    "keywords": [
+        "laravel",
+        "wordpress",
+        "action",
+        "events",
+        "event",
+        "filter",
+        "action",
+        "filters",
+        "actions",
+        "hook",
+        "hooks"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shahnaouz Razu",
+            "email": "shahnaouzrazu21@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0|^8.0",
+        "laravel/framework": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "~3.7|^4.0|^5.0|^6.0|^7.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Razu\\LaravelHooks\\": "src/"
+        },
+        "files": [
+            "src/helper.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Razu\\LaravelHooks\\Test\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Razu\\LaravelHooks\\HooksServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable"
+}

@@ -44,7 +44,7 @@ The do_action function is used to trigger all callback functions attached to a s
 *(mixed) (Optional) – Additional arguments that can be passed to the functions hooked to this action. Defaults to empty if not provided.*
 
 <small>
-    By calling <b>do_action</b>, you execute all functions linked to the specified <b>$tag</b>, passing any optional arguments to each function. This allows custom code to be run at specific points within the application.
+    By calling <b>*do_action*</b>, you execute all functions linked to the specified <b>*$tag*</b>, passing any optional arguments to each function. This allows custom code to be run at specific points within the application.
 <small>
 
 #### LISTEN
@@ -67,4 +67,7 @@ The add_action function associates a callback function with a specified hook ($t
 
 - `$accepted_args`
 *(int) (Optional) The number of arguments the callback function accepts. Default value: 1*
+
+By using <b>*add_action*</b>, you can ensure that your custom functions are executed at the appropriate points in your application’s lifecycle, 
+allowing you to extend or modify functionality as needed.
 

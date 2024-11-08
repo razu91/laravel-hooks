@@ -23,7 +23,7 @@ The filter and action system in Laravel is inspired by WordPress hooks
 
 1. Install using Composer
 
-```
+```bash
 composer require razu/laravel-hooks
 ```
 **Great!** Now you're ready to use laravel-hooks.
@@ -32,7 +32,7 @@ composer require razu/laravel-hooks
 
 #### EVENT
 
-```
+```php
 do_action( string $tag, mixed $arg )
 ```
 
@@ -51,7 +51,7 @@ The *<b>do_action</b>* function is used to trigger all callback functions attach
 
 #### LISTENER
 
-```
+```php
 add_action( string $tag, callable $callback, int $priority = 10, int $accepted_args = 1 )
 ```
 
@@ -76,7 +76,7 @@ allowing you to extend or modify functionality as needed.
 ## FILTER
 
 #### EVENT
-```
+```php
 apply_filters( string $tag, mixed $value )
 ```
 
@@ -92,7 +92,7 @@ When *<b>apply_filters</b>* is called, it sequentially runs all functions associ
 
 #### LISTENER
 
-```
+```php
 add_filter( string $tag, callable $callback, int $priority = 10, int $accepted_args = 1 )
 ```
 
@@ -118,7 +118,7 @@ Using *<b>add_filter</b>*, you can ensure that specific functions modify data wh
 ### Actions
 Anywhere in your code, you can define a new action like this:
 
-```
+```php
 do_action('user_registered', $user);
 ```
 
@@ -129,7 +129,7 @@ To listen for your actions, attach listeners at the appropriate points. Another 
 
 For example, if you want to hook into the above action, you could do the following:
 
-```
+```php
 add_action('user_registered', function($user) {
     $user->sendEmailVerificationCode();
 }, 10, 1);
@@ -155,7 +155,7 @@ Here’s an example of how a filter can be used in a application.
 
 In the `Product.php` model, we have a `getAvailable` method that builds a query to fetch all available products:
 
-```
+```php
 class Product extends Model
 {
     public function getAvailable()
@@ -167,7 +167,7 @@ class Product extends Model
 
 Using a filter, we can modify this query dynamically:
 
-```
+```php
 class Product extends Model
 {
     public function getAvailable()
@@ -181,7 +181,7 @@ Now, in the entry point of the application, such as in a module or plugin, you c
 
 In the service provider of the module or plugin (ideally within the boot method), we'll register a listener for the filter.
 
-```
+```php
 class ModuleServiceProvider extends ServiceProvider
 {
     public function boot()

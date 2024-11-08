@@ -114,11 +114,11 @@ The *<b>add_filter</b>* function allows you to modify various types of internal 
 
 Using *<b>add_filter</b>*, you can ensure that specific functions modify data when the designated filter is applied, allowing for flexible data processing throughout the application.
 
-### Here’s how to pass a callback function:
+## Here’s how to pass a callback function:
 
 The callback can be specified in various ways, including:
 - An anonymous function.
-- A string referring to a class and method within the application, like `MyNamespace\Http\Listener@myHookListener`.
+- A string referring to a class and method within the application, like `OurNamespace\Http\Listener\ourClass@ourHookListenerMethod`.
 - An array format, such as `[$object, 'method']`.
 - A globally defined function, such as `global_function`.
 
@@ -134,7 +134,8 @@ add_action('user_registered', function($user) {
 
 - Using a class method reference as a string:
 ```php
-add_action('user_registered', 'OurNamespace\Http\OurClass@ourMethod', 20, 1);
+add_action('user_registered', 'OurNamespace\Http\Listener\ourClass@ourHookListenerMethod', 20, 1);
+add_action('user_registered', 'OurNamespace\Http\Controllers\ourController@ourMethodName', 20, 1);
 ```
 
 - Using an array callback:

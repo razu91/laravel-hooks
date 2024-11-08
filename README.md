@@ -139,3 +139,57 @@ The first argument must be the name of the action. The second argument can be cl
 The third argument specifies the order in which the functions associated with a particular action are executed. 
 Lower numbers correspond to earlier execution, and functions with the same priority are executed in the order in which they were added to the action. 
 The default value is 10. The fourth argument specifies the number of arguments the function accepts, with the default value being 1.
+
+
+## Filters
+
+Filters must always have data coming in and going out to ensure it reaches the browser for output.
+Your content might pass through multiple filters before finally being displayed. 
+In contrast, actions—though similar to filters—do not require any data to be returned. However, 
+data can still be passed through actions if needed.
+
+Filters are functions in Laravel applications that allow data to be passed through and modified.
+They enable developers to adjust the default behavior of specific functions.
+
+Here’s an example of how a filter can be used in a application.
+
+In the `Product.php` model, we have a `getAvailable` method that builds a query to fetch all available products:
+
+```
+class Product extends Model
+{
+    public function getAvailable()
+    {
+        return Product::where('available_at', '<=', now());
+    }
+}
+```
+
+Using a filter, we can modify this query dynamically:
+
+```
+class Product extends Model
+{
+    public function getAvailable()
+    {
+        return apply_filters('products_available', Product::where('available_at', '<=', now()));
+    }
+}
+```
+
+Now, in the entry point of the application, such as in a module or plugin, you can modify this product availability query.
+
+In the service provider of the module or plugin (ideally within the boot method), we'll register a listener for the filter.
+
+```
+class ModuleServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        // Registering a filter to modify the query for available products
+        add_filter('products_available', function($query) {
+            return $query->where('status', 'active');
+        });
+    }
+}
+```

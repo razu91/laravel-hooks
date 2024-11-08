@@ -114,6 +114,35 @@ The *<b>add_filter</b>* function allows you to modify various types of internal 
 
 Using *<b>add_filter</b>*, you can ensure that specific functions modify data when the designated filter is applied, allowing for flexible data processing throughout the application.
 
+### Here’s how to pass a callback function:
+
+The callback can be specified in various ways, including:
+- An anonymous function.
+- A string referring to a class and method within the application, like `MyNamespace\Http\Listener@myHookListener`.
+- An array format, such as `[$object, 'method']`.
+- A globally defined function, such as `global_function`.
+
+
+#### Examples
+
+- Using an anonymous function:
+```php
+add_action('user_registered', function($user) {
+    $user->sendEmailVerificationCode();
+}, 20, 1);
+```
+
+- Using a class method reference as a string:
+```php
+add_action('user_registered', 'OurNamespace\Http\OurClass@ourMethod', 20, 1);
+```
+
+- Using an array callback:
+```php
+add_action('user_registered', [$object, 'ourMethod'], 20, 1);
+```
+
+
 ## Usages
 ### Actions
 Anywhere in your code, you can define a new action like this:

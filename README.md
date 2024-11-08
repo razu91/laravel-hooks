@@ -115,7 +115,7 @@ The *<b>add_filter</b>* function allows you to modify various types of internal 
 Using *<b>add_filter</b>*, you can ensure that specific functions modify data when the designated filter is applied, allowing for flexible data processing throughout the application.
 
 ## Usages
-
+### Actions
 Anywhere in your code, you can define a new action like this:
 
 ```
@@ -141,7 +141,7 @@ Lower numbers correspond to earlier execution, and functions with the same prior
 The default value is 10. The fourth argument specifies the number of arguments the function accepts, with the default value being 1.
 
 
-## Filters
+### Filters
 
 Filters must always have data coming in and going out to ensure it reaches the browser for output.
 Your content might pass through multiple filters before finally being displayed. 

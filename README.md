@@ -223,3 +223,13 @@ class ModuleServiceProvider extends ServiceProvider
     }
 }
 ```
+
+## License
+
+This software is licensed under the <a href="https://github.com/razu91/laravel-hooks/blob/main/LICENSE">(MIT)</a> License. For more details, please refer to the <a href="https://github.com/razu91/laravel-hooks/blob/main/LICENSE">License</a> file.
+
+
+
+
+
+

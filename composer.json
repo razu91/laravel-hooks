@@ -52,7 +52,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Razu\\LaravelHooks\\HooksServiceProvider"
+                "Razu\\LaravelHooks\\HookServiceProvider"
             ]
         }
     },
